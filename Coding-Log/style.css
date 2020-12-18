@@ -202,7 +202,7 @@ li {
     display: block;
     padding-right: 160px;
     z-index: 6;
-    padding-top: 20px;
+    margin-top: -45px;
   }
 
   .headerlist ul{
@@ -212,7 +212,7 @@ li {
     list-style-type: none;
     float: none;
     margin-left: 0px;
-    margin-right: 17px;
+    margin-right: 17-1px;
     margin-top: none;
 
   }
