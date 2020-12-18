@@ -357,5 +357,15 @@ li {
     font-size: 30px;
     color: #FF0D72;
   }
+
+
+  .bottomSection{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #1D1D1D;
+  }
 }
 
