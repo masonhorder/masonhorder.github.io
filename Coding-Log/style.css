@@ -24,7 +24,7 @@ body {
 }
 #name{
   font-family: Avenir;
-  color: #f0f0f0;
+  color: #FF0D72;
 }
 
 
@@ -58,7 +58,7 @@ a:hover{
   display: inline;
   padding-right: 160px;
   width: 98.9%;
-  opacity: .8;
+  /* opacity: .8; */
   z-index: 6;
   padding-top: 20px;
   top: -10px;
@@ -90,5 +90,30 @@ li {
   margin-left: auto;
   margin-top: 900px;
   color: #f0f0f0;
+}
+
+.body{
+  /* width: 80%; */
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 900px;
+  color: #f0f0f0;
+}
+
+.screenshot{
+  vertical-align:middle;
+}
+.imageText{
+  width: 20%;
+  /* float: right; */
+  display:inline-block;
+}
+
+
+
+.bigPink{
+  font-size: 30px;
+  color: #FF0D72;
 }
 
