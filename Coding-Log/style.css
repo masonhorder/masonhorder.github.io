@@ -85,7 +85,7 @@ li {
   display: inline;
 }
 .narrowBody{
-  width: 40%;
+  width: 33%;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
@@ -106,18 +106,76 @@ li {
   vertical-align:middle;
   height: 600px;
 }
+
+
 .imageText{
   width: 20%;
   /* float: right; */
   display:inline-block;
 }
 
+.imageTextLeft{
+  width: 20%;
+  /* float: right; */
+  display:inline-block;
+}
+
+.imageTextRight{
+  width: 20%;
+  /* float: right; */
+  display:none;
+}
 
 
 .bigPink{
   font-size: 30px;
   color: #FF0D72;
 }
+
+
+
+.bottomSection{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 100px;
+  background-color: #1D1D1D;
+  
+}
+
+.bottomSection ul{
+  text-align: center;
+}
+
+.bottomSection ul li a{
+  list-style: none;
+  text-decoration: none;
+  color:#FF0D72;
+}
+
+.bottomSection ul li{
+  margin:10px;
+}
+
+
+
+
+
+
+
+.frontMessage{
+  width: 50%; 
+  text-align:center; 
+  margin-left:auto; 
+  margin-right: auto;
+  padding:17px;
+  border-radius: 20px;
+  color:#f0f0f0;
+  margin-bottom: 100px;
+  border: 4px solid #3a972b;
+}
+
 
 
 
@@ -139,7 +197,9 @@ li {
 /* on a phone */
 @media screen and (max-width: 1000px) {
 
-
+  .frontMessage{
+    width:75%;
+  }
 
   html,body{
     width: 100%;
@@ -271,6 +331,20 @@ li {
     /* vertical-align:middle; */
   }
   .imageText{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .imageTextLeft{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+  }
+
+  .imageTextRight{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
