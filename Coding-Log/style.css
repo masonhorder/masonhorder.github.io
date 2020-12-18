@@ -51,6 +51,7 @@ a:hover{
   margin-left: 170px;
   top: 15px;
   position: relative;
+  text-decoration: none;
 }
 
 .headerlist{
@@ -132,6 +133,10 @@ li {
   color: #FF0D72;
 }
 
+.giantPink{
+  font-size: 80px;
+  color: #FF0D72;
+}
 
 
 .bottomSection{
@@ -155,7 +160,7 @@ li {
 }
 
 .bottomSection ul li{
-  margin:10px;
+  margin:19px;
 }
 
 
@@ -179,7 +184,10 @@ li {
 
 
 
-
+.contributeLink{
+  color: #FF0D72;
+  text-decoration: underline;
+}
 
 
 
@@ -196,6 +204,12 @@ li {
 
 /* on a phone */
 @media screen and (max-width: 1000px) {
+
+
+  .linkNoStyle{
+    text-decoration: none;
+  }
+
 
   .frontMessage{
     width:75%;
@@ -249,9 +263,12 @@ li {
     color: #FF0D72;
     margin-right: 0px;
     margin-left: 0px;
+    text-decoration: none;
+    
   }
 
   .headerlist{
+    text-decoration: none;
     text-align: center;
     float: center;
     width:100%;
