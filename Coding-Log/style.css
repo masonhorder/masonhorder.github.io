@@ -175,10 +175,10 @@ li {
   margin-left:auto; 
   margin-right: auto;
   padding:17px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   color:#f0f0f0;
   margin-bottom: 100px;
-  border: 4px solid #3a972b;
+  /* border: 4px solid #3a972b; */
 }
 
 
@@ -189,7 +189,18 @@ li {
   text-decoration: underline;
 }
 
-
+.appStoreButton{
+  background-color: #1053b8;
+  width: 140px;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left:25px;
+  padding-right:25px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 20px;
+}
 
 
 
