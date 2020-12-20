@@ -189,10 +189,15 @@ li {
   text-decoration: underline;
 }
 
+
+
+
 .appStoreButton{
+  display: inline-block;
   background-color: #1053b8;
   width: 140px;
-  margin:auto;
+  margin-right:10px;
+  margin-left:10px;
   margin-top: 20px;
   margin-bottom: 30px;
   padding-left:25px;
@@ -203,6 +208,54 @@ li {
 }
 
 .appStoreButton a{
+  color:#f0f0f0;
+  text-decoration: none;
+}
+
+
+
+
+.instagramButton{
+  display: inline-block;
+  background-image: linear-gradient(to right, red , rgb(255, 187, 0));
+  width: 140px;
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left:25px;
+  padding-right:25px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 20px;
+}
+
+.instagramButton a{
+  color:#f0f0f0;
+  text-decoration: none;
+}
+
+
+
+
+
+
+.paypalButton{
+  display: inline-block;
+  background-image:linear-gradient(to bottom right, #589bdaa1 , #002fff83);;
+  width: 140px;
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left:25px;
+  padding-right:25px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 20px;
+}
+
+.paypalButton a{
   color:#f0f0f0;
   text-decoration: none;
 }
