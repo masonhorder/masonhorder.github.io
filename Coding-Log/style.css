@@ -190,6 +190,8 @@ li {
 }
 
 .appStoreButton{
+  color:#f0f0f0;
+  text-decoration: none;
   background-color: #1053b8;
   width: 140px;
   margin:auto;
@@ -219,6 +221,7 @@ li {
 
   .linkNoStyle{
     text-decoration: none;
+
   }
 
 
