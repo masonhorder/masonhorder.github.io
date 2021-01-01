@@ -27,9 +27,9 @@
         <a href="index.html" class="linkNoStyle"><h2 id="name">Mason Horder</h2></a>
         <ul>
           <!-- <li><a href="https://paypal.me/masonhorder" target="blank">Contribute</a></li> -->
-          <li><a href="" target="blank">Twitter</a></li>
-          <li><a href="" target="blank">Instagram</a></li>
-          <li><a href="" target="blank">GitHub</a></li>
+          <li><a href="https://twitter.com/MasonHorder" target="blank">Twitter</a></li>
+          <li><a href="https://www.instagram.com/mason_horder/" target="blank">Instagram</a></li>
+          <li><a href="https://github.com/masonhorder" target="blank">GitHub</a></li>
           <!-- <li><a href="https://apple.co/3mxlxhF" target="blank">Hire me! Freelance</a></li> -->
           <!-- <li><a href="https://www.instagram.com/codinglog_app/" target="blank">Our Instagram</a></li> -->
 
@@ -47,38 +47,46 @@
 
 
 
-          <div class = "item">
+          <div class = "item" onclick="location.href='Coding-Log/index.html';">
+
             <h2>Coding Log</h2>
             <p>Track how much you code!</p>
             <img src="assets/coding-log.png" alt="Coding Log App Screen Shot" height="250px">
 
           </div>
-          <!-- <a href="/Filament-Left/"></a> -->
-            <div class = "item">
 
-                <h2>Filament Left</h2>
-                <p>An easy way to calculate filament left on a spool</p>
-                <img src="assets/filament-left.png" alt="Coding Log App Screen Shot" height="250px">
-            
-            </div>
-          <!-- </a> -->
+          <div class = "item" onclick="location.href='Filament-Left/index.html';">
 
-          <div class = "item">
+            <h2>Filament Left</h2>
+            <p>An easy way to calculate filament left on a spool</p>
+            <img src="assets/filament-left.png" alt="Filament Left App Screen Shot" height="250px">
+          
+          </div>
+
+
+          <div class = "item" onclick="rcTank()">
+
             <h2>Tank</h2>
             <p>RC tank</p>
+            <img src="assets/tank.png" alt="tank photo" height="230px">
+            
 
           </div>
 
-          <div class = "item">
+          <div class = "item" onclick="garage();">
+
             <h2>Smart Garage(Hackathon)</h2>
             <p>Hackathon project: control your garage with your phone</p>
+            <img src="assets/garage.jpg" alt="garage screenshot" height="230px">
 
           </div>
 
 
-          <div class = "item">
+          <div class = "item" onclick="etsy();">
+
             <h2>Etsy Shop</h2>
             <p>A place where you can buy my products which supports me, enjoy 15% off(applies automatically when clicking this box)</p>
+            <img src="assets/etsy.jpg" alt="Etsy Profile Photo" height="190px">
 
           </div>
 
@@ -92,7 +100,19 @@
       
     </div>
 
+    <script>
+      function rcTank(){
+        window.open("https://instructables.com/RC-Controlled-Tank/", "_blank");
+      }
 
+      function garage(){
+        window.open("https://devpost.com/software/smart-garage-by-the-brogrammers", "_blank");
+      }
+
+      function etsy(){
+        window.open("https://www.etsy.com/shop/Mason3dPrintsStudio?coupon=FGJSK15", "_blank");
+      }
+    </script>
   
   </body>
 </html>
