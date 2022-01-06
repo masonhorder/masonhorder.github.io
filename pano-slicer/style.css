@@ -262,8 +262,8 @@ h3{
     margin-top: -670px;
   }
  
-  /* .headerlist{
-    position: absolute;
+  .headerlist{
+    position: normal;
     background-color: #3480c7;
     display: inline;
     z-index: 6;
@@ -271,11 +271,13 @@ h3{
   #name{
     font-size: 28px;
     font-style: normal;
-    float: left;
-    margin-left: 170px;
+    float: none;
+    margin: auto;
     top: 15px;
     position: relative;
     text-decoration: none;
+    width:100%;
+    text-align: center;
   }
   
   .headerlist{
@@ -285,23 +287,29 @@ h3{
     width: 100%;
     z-index: 6;
     top: -10px;
+    text-align: center;
+    float: none;
   }
   
   .headerlist ul{
     list-style-type: none;
-    float: right;
-    margin-right: 170px;
+    float: none;    
+    margin:auto;
+    margin-right: auto;
+    width:max-content;
   }
   
   .headerlist ul a{
     text-decoration: none;
-    float: right;
+    float: none;
     color: #2e2e2e;
-    margin: 20px;
+    margin: 2px;
     font-size: 24px;
+    /* width:max-content; */
+    /* text-align: center */
   }
   li {
-    display: inline;
+    display: normal;
   }
   
   li a::after {
@@ -317,7 +325,7 @@ h3{
   
   a {
     display: block;
-    position: relative;
+    position: normal;
     padding: 0.2em 0;
   }
   
@@ -340,14 +348,14 @@ h3{
     margin-left: auto;
     margin-top: 900px;
     color: #2e2e2e;
-  } */
+  }
   
   
   
   .upper{
     margin-left:10px;
     margin-right:10px;
-    height: 800px;
+    height: auto;
     padding: 30px;
   }
   
@@ -366,7 +374,7 @@ h3{
   
   .upperImage{
     float: none;
-    width: 600px;
+    width: 300px;
   }
   
   
