@@ -257,73 +257,15 @@ h3{
 
 
 @media only screen and (max-width: 1000px) {
+
   
-  .container {
-    margin-top: -750px;
-  }
- 
-  .headerlist{
-    position: none;
-    background-color: #3480c7;
-    display: inline;
-    z-index: 6;
-  }
-  .linkNoStyle{
-    top: 10px;
-    width:max-content;
-    margin: auto;
-  }
-  #name{
-    font-size: 28px;
-    float: none;
-    margin: 0px;
-    top:0px;
-    position: none;
-    text-decoration: none;
-    /* width:max-content; */
-    text-align: center;
-  }
-  #name,
-  #name:link,
-  #name:visited,
-  #name:hover,
-  #name:active{
-      text-decoration: none;
-  }
   
   .headerlist{
-    /* position: normal; */
-    background-color: #688bac;
-    /* display: inline; */
-    width: 100%;
-    z-index: 6;
-    top: -10px;
-    text-align: center;
-    float: none;
-    /* padding:10px; */
-  }
-  
-  .headerlist ul{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    /* background-color:pink; */
-    list-style-type: none;
-    float: none;
-    width: max-content;
-    margin: auto;
-    padding: auto;
-    padding-right: 0px;
-    padding-left: 0px;
-    text-align: center;
+    display: none;
   }
   
   .headerlist ul a{
-    text-decoration: none;
-    display: inline;
-    float: none;
-    color: #2e2e2e;
-    /* margin: 2px; */
-    font-size: 24px;
+    display: none;
   }
 
   li {
@@ -364,7 +306,7 @@ h3{
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 900px;
+    margin-top: 760px;
     color: #2e2e2e;
   }
   
@@ -375,6 +317,7 @@ h3{
     margin-right:10px;
     height: auto;
     padding: 30px;
+    margin-top: 70px;
   }
   
   
@@ -489,6 +432,26 @@ h3{
     border-radius: 60px;
     background-color: rgb(236, 236, 236);
   } 
+
+  .downloadContainer{
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 20px;
+    margin-top: 50px;
+    font-size: 22px;
+    background-color: #004e8d;
+    color:#f0f0f0;
+  }
+  .downloadLink:after,
+  .downloadLink:hover,
+  .downloadLink:visited,
+  .downloadLink{
+    margin:15px;
+    text-decoration: underline;
+    color: #f0f0f0;
+    font-weight: 900;
+  }
+
 }
 
 
