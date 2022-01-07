@@ -233,9 +233,13 @@ h3{
 } 
 
 
+.downloadContainer{
+  display:none;
+}
 
-
-
+.splitImage{
+  height: 100px;
+}
 
 
 
@@ -259,7 +263,10 @@ h3{
 @media only screen and (max-width: 1000px) {
 
   
-  
+  .splitImage{
+    height: 80px;
+  }
+
   .headerlist{
     display: none;
   }
@@ -438,9 +445,11 @@ h3{
     margin-right: 15px;
     border-radius: 20px;
     margin-top: 50px;
-    font-size: 22px;
+    font-size: 20px;
     background-color: #004e8d;
     color:#f0f0f0;
+    display: block;
+    padding:10px;
   }
   .downloadLink:after,
   .downloadLink:hover,
