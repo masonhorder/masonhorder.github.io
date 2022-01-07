@@ -259,57 +259,75 @@ h3{
 @media only screen and (max-width: 1000px) {
   
   .container {
-    margin-top: -670px;
+    margin-top: -750px;
   }
  
   .headerlist{
-    position: normal;
+    position: none;
     background-color: #3480c7;
     display: inline;
     z-index: 6;
   }
+  .linkNoStyle{
+    top: 10px;
+    width:max-content;
+    margin: auto;
+  }
   #name{
     font-size: 28px;
-    font-style: normal;
     float: none;
-    margin: auto;
-    top: 15px;
-    position: relative;
+    margin: 0px;
+    top:0px;
+    position: none;
     text-decoration: none;
-    width:100%;
+    /* width:max-content; */
     text-align: center;
+  }
+  #name,
+  #name:link,
+  #name:visited,
+  #name:hover,
+  #name:active{
+      text-decoration: none;
   }
   
   .headerlist{
-    position: absolute;
+    /* position: normal; */
     background-color: #688bac;
-    display: inline;
+    /* display: inline; */
     width: 100%;
     z-index: 6;
     top: -10px;
     text-align: center;
     float: none;
+    /* padding:10px; */
   }
   
   .headerlist ul{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* background-color:pink; */
     list-style-type: none;
-    float: none;    
-    margin:auto;
-    margin-right: auto;
-    width:max-content;
+    float: none;
+    width: max-content;
+    margin: auto;
+    padding: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
   }
   
   .headerlist ul a{
     text-decoration: none;
+    display: inline;
     float: none;
     color: #2e2e2e;
-    margin: 2px;
+    /* margin: 2px; */
     font-size: 24px;
-    /* width:max-content; */
-    /* text-align: center */
   }
+
   li {
-    display: normal;
+    display: inline;
   }
   
   li a::after {
@@ -333,7 +351,7 @@ h3{
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    /* left: 0; */
     width: 100%;
     height: 0.1em;
     background-color: #004e8d;
@@ -466,7 +484,7 @@ h3{
     border:20px solid white;
     display:inherit;
     width:auto; 
-    height:260px;
+    height:300px;
     /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.534); */
     border-radius: 60px;
     background-color: rgb(236, 236, 236);
