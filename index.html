@@ -143,6 +143,21 @@
        ======= */
     footer { margin-top: 4rem; padding: 2.2rem 1.25rem; text-align:center; border-top: 1px solid var(--border); color: var(--muted); }
 
+    .gallery-mini {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        justify-content: flex-start;
+    }
+
+    .gallery-mini img {
+        width: auto;
+        height: 250px; /* keeps natural shape */
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        object-fit: cover; /* trims edges neatly */
+    }
+
     /* =========================
        RESPONSIVE BREAKPOINTS
        ========================= */
@@ -242,19 +257,22 @@
               'I modeled frames in Fusion 360, iterated SLS prints for fit, and explored HUD optics for readability while moving.'
             ],
             facts: [
-              { label:'Role', value:'Designer / Engineer' },
+              { label:'Role', value:'Designer & Engineer' },
               { label:'Stack', value:'Fusion 360, ESP32, Firestore, Flutter' },
               { label:'Status', value:'Prototype' }
             ],
             tags: ['AR','Wearable','Fusion 360'],
-            links: [
-              { label:'Repo', href:'#' },
-              { label:'Demo', href:'#' }
-            ],
+            // links: [
+            //   { label:'Repo', href:'#' },
+            //   { label:'Demo', href:'#' }
+            // ],
             diary: [
-              { date:'Day 1', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['https://picsum.photos/seed/g1/800/600'] },
-              { date:'Day 2', title:'CAD & First Prints', notes:'Parametric frame; hinge exploration; first SLS print fit‑check.', media:['https://picsum.photos/seed/g2/800/600','https://picsum.photos/seed/g3/800/600'] },
-              { date:'Day 3', title:'Electronics Bring‑up', notes:'ESP32 + sensor wiring; power budget; first HUD render on bench.', media:[] }
+              { date:'Day 1', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['media/ski_goggles1.jpg'] },
+              { date:'Day 2', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['media/ski_goggles2.png','media/ski_goggles3.jpg'] },
+              { date:'Day 3', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:[] },
+              { date:'Day 4', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['media/ski_goggles4.png','media/ski_goggles6.png','media/ski_goggles5.png'] },
+              { date:'Day 7', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['media/ski_goggles7.jpg','media/ski_goggles8.jpg'] },
+              { date:'Day 9', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['media/ski_goggles9.png','media/ski_goggles10.png'] },
             ],
             gallery: [
               { src:'https://picsum.photos/seed/gx1/1200/800', cap:'Frame v2 fit' },
@@ -262,49 +280,7 @@
             ]
           }
         },
-        { slug:'smart-sprinkler', title:'Smart Sprinkler System', cover:'https://picsum.photos/seed/sprinkler/1600/1000', blurb:'A weather‑responsive irrigation system with a mobile dashboard and automatic cycle optimization — aimed at reducing water waste without losing plant health.' },
-        { slug:'panoslicer-app', title:'PanoSlicer App', cover:'https://picsum.photos/seed/pano/1600/1000', blurb:'A simple yet powerful app that cuts panoramas into seamless Instagram grid posts, reaching 6k+ downloads across platforms.' },
-        { slug:'filament-left', title:'Filament Left', cover:'https://picsum.photos/seed/filament/1600/1000', blurb:'An estimator that uses image cues and spool geometry to predict remaining 3D‑printer filament, helping prevent mid‑print runouts.',
-          detail: {
-            hero: 'https://picsum.photos/seed/filament-hero/1600/1000',
-            overview: [
-              'I kept losing prints to mid‑roll runouts. Built a quick estimator using spool geometry + a reference image to predict remaining filament.',
-              'Outcome: fewer failed jobs and better prep before long prints.'
-            ],
-            facts: [
-              { label:'Role', value:'Designer / Dev' },
-              { label:'Stack', value:'Python, OpenCV, Flutter' },
-              { label:'Status', value:'Beta' }
-            ],
-            tags: ['3D Printing','Computer Vision'],
-            links: [ { label:'Repo', href:'#' } ],
-            diary: [
-              { date:'Day 1', title:'Geometry Model', notes:'Spool core radius + outer radius; quick spreadsheet sanity checks.', media:[] },
-              { date:'Day 2', title:'Image Capture', notes:'Lighting rig + fixed distance; edge detection pass with OpenCV.', media:['https://picsum.photos/seed/f1/800/600'] },
-              { date:'Day 3', title:'App UI', notes:'Slider for spool types; confidence readout; export to CSV.', media:['https://picsum.photos/seed/f2/800/600'] }
-            ],
-            gallery: [
-              { src:'https://picsum.photos/seed/fx1/1200/800', cap:'Calibration card' },
-              { src:'https://picsum.photos/seed/fx2/1200/800', cap:'App estimate vs. actual' }
-            ]
-          }
-        },
-        { slug:'ski-run-tracker', title:'Ski Run Tracker', cover:'https://picsum.photos/seed/skirun/1600/1000', blurb:'A Flutter module that segments GPS traces into runs and lifts, computing vertical feet and top speed with a clean on‑mountain UI.' },
-        { slug:'background-gps-sync', title:'Background GPS + Cloud Sync', cover:'https://picsum.photos/seed/bgps/1600/1000', blurb:'Continuous background location tracking for iOS/Android with reliable batching and Firestore sync, tuned for battery life.' },
-        { slug:'ar-hud-prototype', title:'AR HUD Prototype', cover:'https://picsum.photos/seed/arhud/1600/1000', blurb:'Optics + display experiments for a lightweight heads‑up display. Explores FOV, brightness, and lens placement tradeoffs.' },
-        { slug:'terrain-heatmap', title:'Terrain Heatmap', cover:'https://picsum.photos/seed/terrain/1600/1000', blurb:'Generates slope and aspect heatmaps from elevation tiles to visualize difficulty on ski maps and hiking routes.' },
-        { slug:'lift-detector', title:'Lift Detector', cover:'https://picsum.photos/seed/lift/1600/1000', blurb:'Signal‑processing heuristics to identify chairlift vs. run segments from noisy GPS and accelerometer data.' },
-        { slug:'photo-wall-generator', title:'Photo Wall Generator', cover:'https://picsum.photos/seed/wall/1600/1000', blurb:'A tiny site that builds responsive photo walls with lazy‑load and auto‑captions — perfect for build logs.' },
-        { slug:'mapbox-ski-map', title:'Mapbox Ski Map', cover:'https://picsum.photos/seed/mapbox/1600/1000', blurb:'Custom Mapbox style for resorts with trail overlays, color‑blind‑friendly palettes, and offline tiles.' },
-        { slug:'hud-optics-rig', title:'HUD Optics Rig', cover:'https://picsum.photos/seed/optic/1600/1000', blurb:'A modular bench‑rig for testing lenses, mirrors, and display modules with quick alignment and repeatable measurements.' },
-        { slug:'fusion-helmet-mount', title:'Fusion Helmet Mount', cover:'https://picsum.photos/seed/helmet/1600/1000', blurb:'Parametric Fusion 360 model for a universal action‑cam helmet mount — tuned for print strength and easy assembly.' },
-        { slug:'easyeda-power-board', title:'EasyEDA Power Board', cover:'https://picsum.photos/seed/power/1600/1000', blurb:'A compact power‑distribution PCB for wearables with fused outputs, USB‑C charging, and battery telemetry headers.' },
-        { slug:'battery-logger', title:'Battery Logger', cover:'https://picsum.photos/seed/battery/1600/1000', blurb:'Logs current, voltage, and temperature during field tests to profile real‑world battery performance and sag.' },
-        { slug:'speedometer-widget', title:'Speedometer Widget', cover:'https://picsum.photos/seed/speed/1600/1000', blurb:'A high‑contrast, low‑latency speed display optimized for sunlit use and quick glances on the mountain.' },
-        { slug:'chairlift-queue-estimator', title:'Chairlift Queue Estimator', cover:'https://picsum.photos/seed/queue/1600/1000', blurb:'Estimates wait times using device density and short‑range telemetry to help choose the fastest lift.' },
-        { slug:'print-farm-dashboard', title:'Print Farm Dashboard', cover:'https://picsum.photos/seed/printfarm/1600/1000', blurb:'A web dashboard to track multiple printers, filament levels, and job progress with alerts.' },
-        { slug:'tft-ui-kit', title:'TFT UI Kit', cover:'https://picsum.photos/seed/tft/1600/1000', blurb:'Reusable widgets for small TFT displays (buttons, meters, lists) with focus on readability and minimal redraw.' },
-        { slug:'home-energy-viewer', title:'Home Energy Viewer', cover:'https://picsum.photos/seed/energy/1600/1000', blurb:'A simple app to visualize household energy use and surface actions that meaningfully reduce consumption.' }
+        
       ]
     };
 
@@ -416,17 +392,12 @@
               <ul>${factsList}</ul>
             </div>
           </div>
-
-          <div class="grid-2" style="margin-top:1.2rem">
+        <div style="margin-top:1.2rem">
             <div class="panel reveal">
-              <h3>Build Diary</h3>
-              ${diary.length ? `<div class="timeline">${diaryItems}</div>` : `<pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements\nDay 2 — CAD and prints\nDay 3 — Electronics bring‑up\n...</pre>`}
+                <h3>Build Diary</h3>
+                ${diary.length ? `<div class="timeline">${diaryItems}</div>` : `<pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements\nDay 2 — CAD and prints\nDay 3 — Electronics bring‑up\n...</pre>`}
             </div>
-            <div class="panel reveal">
-              <h3>Gallery</h3>
-              <div class="grid-2">${galleryGrid}</div>
-            </div>
-          </div>
+        </div> 
         </section>`;
 
       mountReveals();
