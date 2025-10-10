@@ -117,6 +117,21 @@
     .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .panel { background:#fff; border:1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
 
+    /* Fun, easy-to-edit diary styling */
+    .tags { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem; }
+    .tag { background: #eef3ff; color: #0b3d91; border: 1px solid #d7e3ff; padding:.35rem .7rem; border-radius:999px; font-weight:700; font-size:.9rem; }
+    .link-badges { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.6rem; }
+    .link-badges a { text-decoration:none; border:1px dashed var(--border); padding:.45rem .75rem; border-radius:10px; font-weight:700; color: var(--navy); }
+
+    /* Timeline diary */
+    .timeline { position:relative; padding-left:1.25rem; }
+    .timeline::before { content:""; position:absolute; left:.2rem; top:.2rem; bottom:.2rem; width:2px; background: linear-gradient(var(--navy), transparent); opacity:.25; }
+    .t-item { position:relative; padding-left:1rem; margin:.85rem 0; }
+    .t-item::before { content:""; position:absolute; left:-.4rem; top:.35rem; width:.6rem; height:.6rem; border-radius:999px; background: var(--navy); box-shadow:0 0 0 3px rgba(11,61,145,.15); }
+    .t-title { margin:0; font-weight:800; }
+    .t-date { font-size:.85rem; color:var(--muted); margin-left:.4rem; }
+    .gallery-mini { display:grid; grid-template-columns: repeat(2, 1fr); gap:.5rem; margin-top:.5rem; }
+
     /* ================
        SCROLL REVEAL FX
        ================ */
@@ -182,7 +197,7 @@
         <a class="pill-link" href="#/about">About</a>
         <a class="pill-link" href="#/skills">Skills</a>
         <a class="pill-link" href="#/diaries">Project Diaries</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mason-horder-962359177/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:masonhorder@gmail.com">Email</a>
       </nav>
     </div>
@@ -207,7 +222,7 @@
           "What drives me most is combining creativity with technical precision — the idea that elegant design and solid engineering can coexist beautifully."
         ],
         chips: ['Mechanical Engineering @ CU Boulder','Flutter · Python · C++','Fusion 360 · SolidWorks · EasyEDA'],
-        photo: 'https://picsum.photos/seed/masonphoto/900/900' // ← replace with your headshot URL
+        photo: 'IMG_9964.jpg' // ← replace with your headshot URL
       },
       skills: [
         '<strong>Mechanical Design:</strong> Fusion 360, SolidWorks, 3D printing, CNC, rapid prototyping',
@@ -219,10 +234,61 @@
       diariesIntro: 'My project diaries are a living record of my work — detailed breakdowns of each build, the lessons I’ve learned, the setbacks, and the breakthroughs. I document these to reflect not just the outcomes but the process — the debugging sessions, the CAD redesigns, the code refactors, and the long nights spent testing. Each diary captures a story of iteration and growth.',
       projects: [
         // ↓ You can add / remove projects freely. "slug" forms the diary URL: #/project/your-slug
-        { slug:'smart-ski-goggles', title:'Smart Ski Goggles', cover:'https://picsum.photos/seed/goggles/1600/1000', blurb:'Custom AR ski goggles that display real‑time speed, elevation, and map overlays using an ESP32 and Firestore. Designed from scratch and tested at Eldora Mountain.' },
+        { slug:'smart-ski-goggles', title:'Smart Ski Goggles', cover:'https://picsum.photos/seed/goggles/1600/1000', blurb:'Custom AR ski goggles that display real‑time speed, elevation, and map overlays using an ESP32 and Firestore. Designed from scratch and tested at Eldora Mountain.',
+          detail: {
+            hero: 'https://picsum.photos/seed/goggles-hero/1600/1000',
+            overview: [
+              'Goal: a lightweight AR HUD for skiers with legible, glanceable data in sun and snow.',
+              'I modeled frames in Fusion 360, iterated SLS prints for fit, and explored HUD optics for readability while moving.'
+            ],
+            facts: [
+              { label:'Role', value:'Designer / Engineer' },
+              { label:'Stack', value:'Fusion 360, ESP32, Firestore, Flutter' },
+              { label:'Status', value:'Prototype' }
+            ],
+            tags: ['AR','Wearable','Fusion 360'],
+            links: [
+              { label:'Repo', href:'#' },
+              { label:'Demo', href:'#' }
+            ],
+            diary: [
+              { date:'Day 1', title:'Sketch & Requirements', notes:'Field-of-view, weight, and battery life targets; initial lens placement tests.', media:['https://picsum.photos/seed/g1/800/600'] },
+              { date:'Day 2', title:'CAD & First Prints', notes:'Parametric frame; hinge exploration; first SLS print fit‑check.', media:['https://picsum.photos/seed/g2/800/600','https://picsum.photos/seed/g3/800/600'] },
+              { date:'Day 3', title:'Electronics Bring‑up', notes:'ESP32 + sensor wiring; power budget; first HUD render on bench.', media:[] }
+            ],
+            gallery: [
+              { src:'https://picsum.photos/seed/gx1/1200/800', cap:'Frame v2 fit' },
+              { src:'https://picsum.photos/seed/gx2/1200/800', cap:'HUD readability test' }
+            ]
+          }
+        },
         { slug:'smart-sprinkler', title:'Smart Sprinkler System', cover:'https://picsum.photos/seed/sprinkler/1600/1000', blurb:'A weather‑responsive irrigation system with a mobile dashboard and automatic cycle optimization — aimed at reducing water waste without losing plant health.' },
         { slug:'panoslicer-app', title:'PanoSlicer App', cover:'https://picsum.photos/seed/pano/1600/1000', blurb:'A simple yet powerful app that cuts panoramas into seamless Instagram grid posts, reaching 6k+ downloads across platforms.' },
-        { slug:'filament-left', title:'Filament Left', cover:'https://picsum.photos/seed/filament/1600/1000', blurb:'An estimator that uses image cues and spool geometry to predict remaining 3D‑printer filament, helping prevent mid‑print runouts.' },
+        { slug:'filament-left', title:'Filament Left', cover:'https://picsum.photos/seed/filament/1600/1000', blurb:'An estimator that uses image cues and spool geometry to predict remaining 3D‑printer filament, helping prevent mid‑print runouts.',
+          detail: {
+            hero: 'https://picsum.photos/seed/filament-hero/1600/1000',
+            overview: [
+              'I kept losing prints to mid‑roll runouts. Built a quick estimator using spool geometry + a reference image to predict remaining filament.',
+              'Outcome: fewer failed jobs and better prep before long prints.'
+            ],
+            facts: [
+              { label:'Role', value:'Designer / Dev' },
+              { label:'Stack', value:'Python, OpenCV, Flutter' },
+              { label:'Status', value:'Beta' }
+            ],
+            tags: ['3D Printing','Computer Vision'],
+            links: [ { label:'Repo', href:'#' } ],
+            diary: [
+              { date:'Day 1', title:'Geometry Model', notes:'Spool core radius + outer radius; quick spreadsheet sanity checks.', media:[] },
+              { date:'Day 2', title:'Image Capture', notes:'Lighting rig + fixed distance; edge detection pass with OpenCV.', media:['https://picsum.photos/seed/f1/800/600'] },
+              { date:'Day 3', title:'App UI', notes:'Slider for spool types; confidence readout; export to CSV.', media:['https://picsum.photos/seed/f2/800/600'] }
+            ],
+            gallery: [
+              { src:'https://picsum.photos/seed/fx1/1200/800', cap:'Calibration card' },
+              { src:'https://picsum.photos/seed/fx2/1200/800', cap:'App estimate vs. actual' }
+            ]
+          }
+        },
         { slug:'ski-run-tracker', title:'Ski Run Tracker', cover:'https://picsum.photos/seed/skirun/1600/1000', blurb:'A Flutter module that segments GPS traces into runs and lifts, computing vertical feet and top speed with a clean on‑mountain UI.' },
         { slug:'background-gps-sync', title:'Background GPS + Cloud Sync', cover:'https://picsum.photos/seed/bgps/1600/1000', blurb:'Continuous background location tracking for iOS/Android with reliable batching and Firestore sync, tuned for battery life.' },
         { slug:'ar-hud-prototype', title:'AR HUD Prototype', cover:'https://picsum.photos/seed/arhud/1600/1000', blurb:'Optics + display experiments for a lightweight heads‑up display. Explores FOV, brightness, and lens placement tradeoffs.' },
@@ -302,41 +368,63 @@
     function projectDetail(slug){
       const p = data.projects.find(x=>x.slug===slug);
       if(!p){ location.hash = '#/'; return; }
+      // Use detail object if provided; fall back to generic fields
+      const d = p.detail || {};
+      const hero = d.hero || p.cover;
+      const overview = Array.isArray(d.overview) ? d.overview : [p.blurb];
+      const facts = Array.isArray(d.facts) ? d.facts : [
+        {label:'Role', value:'Designer / Engineer'},
+        {label:'Stack', value:'Fusion 360, Raspberry Pi/ESP32, Flutter, Python'},
+        {label:'Status', value:'Prototype'}
+      ];
+      const tags = d.tags || [];
+      const links = d.links || [];
+      const diary = Array.isArray(d.diary) ? d.diary : [];
+      const gallery = Array.isArray(d.gallery) ? d.gallery : [];
+
+      // Helper renderers (kept simple so you can edit easily)
+      const factsList = facts.map(f=>`<li><strong>${f.label}:</strong> ${f.value}</li>`).join('');
+      const tagChips = tags.map(t=>`<span class="tag">${t}</span>`).join('');
+      const linkBtns = links.map(a=>`<a href="${a.href}" target="_blank" rel="noopener">${a.label} ↗</a>`).join('');
+      const diaryItems = diary.map(item=>`
+        <div class="t-item">
+          <p class="t-title">${item.title} <span class="t-date">— ${item.date}</span></p>
+          <p class="muted">${item.notes}</p>
+          ${item.media && item.media.length ? `<div class="gallery-mini">${item.media.map(m=>`<img class='thumb' src='${m}' alt='${p.title} ${item.title}'>`).join('')}</div>` : ''}
+        </div>
+      `).join('');
+
+      const galleryGrid = (gallery.length ? gallery : [
+        {src:`https://picsum.photos/seed/${slug}1/1200/800`, cap:'Detail 1'},
+        {src:`https://picsum.photos/seed/${slug}2/1200/800`, cap:'Detail 2'}
+      ]).map(g=>`<figure><img class="thumb" src="${g.src}" alt="${p.title} detail"><figcaption class="muted">${g.cap||''}</figcaption></figure>`).join('');
+
       view.innerHTML = `
         <section class="reveal">
           <a href="#/diaries" style="text-decoration:none;color:var(--navy);font-weight:800">← Back to Project Diaries</a>
           <h1 class="section-title" style="font-size: clamp(2.4rem,5.6vw,3.4rem); margin-top:.6rem">${p.title}</h1>
-          <div class="hero"><img src="${p.cover}" alt="${p.title} hero image" loading="lazy"></div>
+          <div class="hero"><img src="${hero}" alt="${p.title} hero image" loading="lazy"></div>
           <div class="grid-2">
             <div class="panel reveal">
               <h3>Overview</h3>
-              <p>${p.blurb}</p>
-              <p>This diary covers ideation, design decisions, testing phases, and reflections with photos, logs, and results.</p>
+              ${overview.map(par=>`<p>${par}</p>`).join('')}
+              ${tags.length ? `<div class="tags">${tagChips}</div>` : ''}
+              ${links.length ? `<div class="link-badges">${linkBtns}</div>` : ''}
             </div>
             <div class="panel reveal">
               <h3>Quick Facts</h3>
-              <ul>
-                <li><strong>Role:</strong> Designer / Engineer</li>
-                <li><strong>Stack:</strong> Fusion 360, Raspberry Pi/ESP32, Flutter, Python</li>
-                <li><strong>Status:</strong> Prototype</li>
-              </ul>
+              <ul>${factsList}</ul>
             </div>
           </div>
 
           <div class="grid-2" style="margin-top:1.2rem">
             <div class="panel reveal">
               <h3>Build Diary</h3>
-              <pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements
-Day 2 — CAD and prints
-Day 3 — Electronics bring‑up
-...</pre>
+              ${diary.length ? `<div class="timeline">${diaryItems}</div>` : `<pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements\nDay 2 — CAD and prints\nDay 3 — Electronics bring‑up\n...</pre>`}
             </div>
             <div class="panel reveal">
               <h3>Gallery</h3>
-              <div class="grid-2">
-                <img class="thumb" src="https://picsum.photos/seed/${slug}1/800/600" alt="${p.title} detail 1">
-                <img class="thumb" src="https://picsum.photos/seed/${slug}2/800/600" alt="${p.title} detail 2">
-              </div>
+              <div class="grid-2">${galleryGrid}</div>
             </div>
           </div>
         </section>`;
