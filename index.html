@@ -1,191 +1,257 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60ZC9PFKQZ"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mason Horder — Engineering Portfolio</title>
+  <meta name="description" content="The professional portfolio and project diaries of Mason Horder — mechanical engineer, builder, and problem-solver." />
+  <meta name="theme-color" content="#0b3d91" />
+  <style>
+    :root {
+      --navy: #0b3d91;
+      --navy-dark: #062a63;
+      --ink: #0f172a;
+      --light: #ffffff;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #f8fafc;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(11, 61, 145, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(900px 400px at 110% -20%, rgba(11,61,145,.06), transparent 50%) no-repeat var(--light);
+      color: var(--ink);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { max-width: 1160px; margin: 0 auto; padding: 1rem 1.25rem; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:.7rem; text-decoration:none; color: var(--ink); font-weight: 900; letter-spacing:.2px; }
+    .brand-badge { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(180deg, var(--navy), var(--navy-dark)); display:grid; place-items:center; color:#fff; box-shadow: var(--shadow); }
+    nav a { margin-left: .8rem; text-decoration: none; color: var(--navy); font-weight: 700; padding:.55rem .8rem; border-radius: 999px; }
+    nav a:hover { background: #eaf2ff; }
+    .pill-link { border:1px solid var(--border); color: var(--ink); }
 
-    gtag('config', 'G-60ZC9PFKQZ');
-  </script>
-  <meta charset="utf-8">
-  <title>Mason Horder - Developer and Entreprenuer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    /* Layout */
+    .container { max-width: 1120px; margin: auto; padding: 2.25rem 1.25rem; }
+    .section-title { font-size: clamp(1.8rem, 3.8vw, 2.4rem); line-height:1.15; margin: 0 0 1rem; color: var(--navy); }
+    .lead { color: var(--muted); font-size: 1.05rem; }
 
+    /* About */
+    .about { display:grid; grid-template-columns: 1.1fr .9fr; gap: 3rem; align-items: center; margin-top: 2rem; }
+    .about img { border-radius: var(--radius); width: 100%; object-fit: cover; box-shadow: var(--shadow); border:1px solid var(--border); }
+    .kvs { display:flex; gap:.6rem; flex-wrap:wrap; margin-top: .6rem; }
+    .chip { border:1px solid var(--border); padding:.35rem .7rem; border-radius:999px; font-size:.92rem; background:#fff; }
 
+    /* Skills */
+    .skills { background: var(--accent); border-radius: var(--radius); padding: 2rem; margin-top: 3rem; border:1px solid var(--border); }
+    .skills ul { columns: 2; column-gap: 2rem; padding-left: 1rem; }
+    .skills li { margin: 0 0 .6rem; }
 
+    /* Diaries */
+    .diaries { margin-top: 4rem; }
+    .gallery { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
+    .card { background:#fff; border:1px solid var(--border); border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(11,61,145,.12); }
+    .thumb { width:100%; height: 200px; object-fit: cover; display:block; }
+    .content { padding: 1rem 1.1rem 1.2rem; }
+    .card-title { font-size: 1.35rem; margin: .2rem 0 .25rem; line-height:1.25; }
+    .card-title a { color: var(--ink); text-decoration:none; background: linear-gradient(transparent 75%, rgba(11,61,145,.2) 0) no-repeat; }
+    .card-title a:hover { text-decoration: none; }
+    .muted { color: var(--muted); }
+
+    /* Detail page */
+    .hero { border-radius: var(--radius); overflow:hidden; border:1px solid var(--border); margin: 1.2rem 0; }
+    .hero img { width:100%; height: 420px; object-fit:cover; display:block; }
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .panel { background:#fff; border:1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; }
+
+    footer { margin-top: 4rem; padding: 2rem 1.25rem; text-align:center; border-top: 1px solid var(--border); color: var(--muted); }
+
+    @media (max-width: 900px){ .about{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } .hero img{ height:260px; } }
+  </style>
 </head>
-
 <body>
-
-  <div class="container">
-    <div class="header">
-      <div class="headerlist">
-        <a href="index.html" class="linkNoStyle" style="text-decoration: none">
-          <h2 id="name">Mason<span class="titleHighlight">Horder</span></h2>
-        </a>
-        <ul>
-          <!-- <li><a class="noShow" href="" target="blank">Instagram</a></li> -->
-          <li><a class="noShow" href="" target="blank">My Projects</a></li>
-          <!-- <li><a class="noShow" href="" target="blank">About Me</a></li> -->
-          <li><a class="noShow" href="/Freelance" target="blank">Freelance</a></li>
-
-        </ul>
-      </div>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#/">
+        <span class="brand-badge">MH</span>
+        <span>Mason Horder</span>
+      </a>
+      <nav>
+        <a class="pill-link" href="#/about">About</a>
+        <a class="pill-link" href="#/skills">Skills</a>
+        <a class="pill-link" href="#/diaries">Project Diaries</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:masonhorder@gmail.com">Email</a>
+      </nav>
     </div>
-    <div class="body">
+  </header>
 
+  <main id="view" class="container"></main>
 
+  <footer>
+    © 2025 Mason Horder — Designed & coded with care · <a href="mailto:masonhorder@gmail.com">masonhorder@gmail.com</a>
+  </footer>
 
-      
-
-      <div class="upper">
-        <p class="upperTitle">Developer<br>& entreprenuer</p>
-        <img class="upperImage" src="assets/sitemedia.png">
-      </div>
-
-      <!-- <div class="downloadContainer">
-        <div class="downloadPromo">Download <strong>Panoramic Slicer</strong> on the Appstore or Play Store(Coming Soon)</div><a class="downloadLink" href="https://apps.apple.com/bn/app/panoramic-slicer/id1575445272" target="blank">Download on App Store</a>
-      </div> -->
-
-
-      <div class="row">
-        <div class="description left">
-          <h3>Hey There!</h3>
-          My name is Mason, I am a developer and entreprenuer. Currently I'm an unemployed High Schooler having fun creating things with coding, 3D printing, hardware electronics and more. Along with these hobbies I really enjoy building and flying FPV drones.<br><br>I'm creating this site for me to share my personal work and things I've learned through over 6 years of coding. I hope you can grow your knowledge with me.          
-        </div>
-        <div class="right socials">
-
-          <div class="social" onclick="window.open('https://instagram.com/masonh.dev', '_blank');">
-            <a href="#" class="fa fa-instagram fa-3x"></a>My Instagram: Enjoy snippets of projects
-          </div>
-          <div class="social" onclick="window.open('https://github.com/masonhorder', '_blank');">
-            <a href="#" class="fa fa-github fa-3x"></a>Github: Check out my previous work
-          </div>
-          <div class="social" onclick="window.open('https://fiverr.com/masonhorder', '_blank');">
-            <a href="#" class="fa fa-fiverr fa-3x">fi</a>Fiverr: Freelance me
-          </div>
-          <div class="social" onclick="window.open('https://apps.apple.com/tc/developer/che-horder/id1544576576', '_blank');">
-            <a href="#" class="fa fa-apple fa-3x"></a>Appstore: Check out my apps on the Appstore
-          </div>
-        </div>
-          
-      </div>
-      <div class="projectBody">
-        <h3>Projects &#8250;</h3>
-        <div class="projectContainer">
-          <div class = "item" onclick="pano()">
-
-            <h2>Pano Slicer</h2>
-            <p>Social Media tool to split up panoramics</p>
-            <img src="assets/pano.png" alt="Pano Slicer Screenshot" height="250px">
-          
-          </div>
-
-          <div class = "item" onclick="filament()">
-
-            <h2>Filament Left</h2>
-            <p>An easy way to calculate filament left on a spool</p>
-            <img src="assets/filament-left.png" alt="Filament Left App Screen Shot" height="250px">
-          
-          </div>
-
-
-          <div class = "item" onclick="coding()">
-
-            <h2>Coding Log</h2>
-            <p>Track how much you code!</p>
-            <img src="assets/coding-log.png" alt="Coding Log App Screen Shot" height="250px">
-
-          </div>
-
-
-
-          <div class = "item" onclick="rcTank()">
-
-            <h2>Tank</h2>
-            <p>RC tank</p>
-            <img src="assets/tank.png" alt="tank photo" height="230px">
-            
-
-          </div>
-
-          <div class = "item" onclick="garage();">
-
-            <h2>Smart Garage(Hackathon)</h2>
-            <p>Hackathon project: control your garage with your phone</p>
-            <img src="assets/garage.jpg" alt="garage screenshot" height="230px">
-
-          </div>
-
-          <div class = "item" onclick="recipe();">
-
-            <h2>Recipe App(Hackathon)</h2>
-            <p>Easily manage all your recipes on your phone</p>
-            <img src="assets/recipeWorld.png" alt="recipe screenshot" height="230px">
-
-          </div>
-
-
-          <div class = "item" onclick="">
-
-            <h2>FPV Drone</h2>
-            <p>Since the beginning of 2021 I have started to take a liking for FPV. I enjoy to shoot freestyle and cinematic type videos. I maninly publish to instagram reels.</p>
-            <img src="assets/fpv.JPEG" alt="Pictire of my drone" height="190px">
-
-          </div>
-
-
-          <div class = "item" onclick="etsy();">
-
-            <h2>Etsy Shop</h2>
-            <p>A place where you can buy my products which supports me, enjoy 15% off(applies automatically when clicking this box)</p>
-            <img src="assets/etsy.jpg" alt="Etsy Profile Photo" height="190px">
-
-          </div>
-        </div>
-      </div>
-
-      
-
-
-      
-
-
-
-
-
-    </div>
-  </div>
   <script>
-    function rcTank(){
-      window.open("https://instructables.com/RC-Controlled-Tank/", "_blank");
+    // --- Data (content unchanged) ---
+    const data = {
+      about: {
+        title: 'About Me',
+        paragraphs: [
+          "Hi, I’m Mason Horder — an engineering student at CU Boulder with a passion for creating meaningful, tangible things. I bridge the worlds of mechanical design, embedded systems, and user‑focused app development to build tools that make life easier and more fun.",
+          "I love working across the entire lifecycle: from concept sketches and CAD modeling to circuit design, coding, and field testing. My work ranges from AR ski goggles that project live metrics, to smart home devices, and mobile tools with thousands of downloads.",
+          "What drives me most is combining creativity with technical precision — the idea that elegant design and solid engineering can coexist beautifully."
+        ],
+        chips: ['Mechanical Engineering @ CU Boulder','Flutter · Python · C++','Fusion 360 · SolidWorks · EasyEDA'],
+        photo: 'https://picsum.photos/seed/masonphoto/900/900'
+      },
+      skills: [
+        '<strong>Mechanical Design:</strong> Fusion 360, SolidWorks, 3D printing, CNC, rapid prototyping',
+        '<strong>Embedded Systems:</strong> ESP32, Raspberry Pi, EasyEDA, PCB design, sensors & actuators',
+        '<strong>Software:</strong> Flutter, Python, C++, Firebase, background services, data visualization',
+        '<strong>UI/UX:</strong> Wireframing, user testing, responsive design principles',
+        '<strong>Collaboration:</strong> Version control, documentation, iterative prototyping'
+      ],
+      diariesIntro: 'My project diaries are a living record of my work — detailed breakdowns of each build, the lessons I’ve learned, the setbacks, and the breakthroughs. I document these to reflect not just the outcomes but the process — the debugging sessions, the CAD redesigns, the code refactors, and the long nights spent testing. Each diary captures a story of iteration and growth.',
+      projects: [
+        { slug:'smart-ski-goggles', title:'Smart Ski Goggles', cover:'https://picsum.photos/seed/goggles/1600/1000',
+          blurb:'Custom AR ski goggles that display real‑time speed, elevation, and map overlays using an ESP32 and Firestore. Designed from scratch and tested at Eldora Mountain.' },
+        { slug:'smart-sprinkler', title:'Smart Sprinkler System', cover:'https://picsum.photos/seed/sprinkler/1600/1000',
+          blurb:'A weather‑responsive irrigation system with a mobile dashboard and automatic cycle optimization — aimed at reducing water waste without losing plant health.' },
+        { slug:'panoslicer-app', title:'PanoSlicer App', cover:'https://picsum.photos/seed/pano/1600/1000',
+          blurb:'A simple yet powerful app that cuts panoramas into seamless Instagram grid posts, reaching 6k+ downloads across platforms.' }
+      ]
+    };
+
+    const view = document.getElementById('view');
+
+    // --- Renderers ---
+    function home(){
+      view.innerHTML = `
+        <section id="about" class="about">
+          <div>
+            <h2 class="section-title">${data.about.title}</h2>
+            ${data.about.paragraphs.map(p=>`<p>${p}</p>`).join('')}
+            <div class="kvs">${data.about.chips.map(c=>`<span class='chip'>${c}</span>`).join('')}</div>
+          </div>
+          <img src="${data.about.photo}" alt="Mason Horder portrait" />
+        </section>
+
+        <section id="skills" class="skills">
+          <h2 class="section-title">Skills & Tools</h2>
+          <ul>${data.skills.map(s=>`<li>${s}</li>`).join('')}</ul>
+          <p>Each skill supports my broader goal — building connected devices that merge physical precision with intuitive digital feedback.</p>
+        </section>
+
+        <section id="diaries" class="diaries">
+          <h2 class="section-title">Project Diaries</h2>
+          <p class="lead" style="max-width: 820px;">${data.diariesIntro}</p>
+          <div class="gallery">
+            ${data.projects.map(p=>card(p)).join('')}
+          </div>
+          <p style="margin-top:1.2rem">Each diary includes in‑depth sections on ideation, design decisions, testing phases, and reflections — complete with photos, logs, and results. <strong>It’s more than a showcase; it’s a record of my engineering journey.</strong></p>
+        </section>`;
     }
-    function garage(){
-      window.open("https://devpost.com/software/smart-garage-by-the-brogrammers", "_blank");
+
+    function card(p){
+      return `
+        <article class="card">
+          <a href="#/project/${p.slug}" aria-label="Open ${p.title} diary"><img class="thumb" src="${p.cover}" alt="${p.title}"></a>
+          <div class="content">
+            <h3 class="card-title"><a href="#/project/${p.slug}">${p.title}</a></h3>
+            <p class="muted">${p.blurb}</p>
+          </div>
+        </article>`;
     }
-    function etsy(){
-      window.open("https://www.etsy.com/shop/Mason3dPrintsStudio?coupon=FGJSK15", "_blank");
+
+    function projectDetail(slug){
+      const p = data.projects.find(x=>x.slug===slug);
+      if(!p){ location.hash = '#/'; return; }
+      view.innerHTML = `
+        <section>
+          <a href="#/diaries" style="text-decoration:none;color:var(--navy);font-weight:800">← Back to Project Diaries</a>
+          <h1 class="section-title" style="font-size: clamp(2.2rem,5.6vw,3.2rem); margin-top:.6rem">${p.title}</h1>
+          <div class="hero"><img src="${p.cover}" alt="${p.title} hero image"></div>
+          <div class="grid-2">
+            <div class="panel">
+              <h3>Overview</h3>
+              <p>${p.blurb}</p>
+              <p>This diary covers ideation, design decisions, testing phases, and reflections with photos, logs, and results.</p>
+            </div>
+            <div class="panel">
+              <h3>Quick Facts</h3>
+              <ul>
+                <li><strong>Role:</strong> Designer / Engineer</li>
+                <li><strong>Stack:</strong> Fusion 360, Raspberry Pi/ESP32, Flutter, Python</li>
+                <li><strong>Status:</strong> Prototype</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top:1.2rem">
+            <div class="panel">
+              <h3>Build Diary</h3>
+              <pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements
+Day 2 — CAD and prints
+Day 3 — Electronics bring‑up
+...</pre>
+            </div>
+            <div class="panel">
+              <h3>Gallery</h3>
+              <div class="grid-2">
+                <img class="thumb" src="https://picsum.photos/seed/${slug}1/800/600" alt="${p.title} detail 1">
+                <img class="thumb" src="https://picsum.photos/seed/${slug}2/800/600" alt="${p.title} detail 2">
+              </div>
+            </div>
+          </div>
+        </section>`;
     }
-    function recipe(){
-      window.open("https://devpost.com/software/recipeworld?ref_content=user-portfolio&ref_feature=in_progress", "_blank");
+
+    function skillsOnly(){
+      view.innerHTML = `
+        <section id="skills" class="skills">
+          <h2 class="section-title">Skills & Tools</h2>
+          <ul>${data.skills.map(s=>`<li>${s}</li>`).join('')}</ul>
+          <p>Each skill supports my broader goal — building connected devices that merge physical precision with intuitive digital feedback.</p>
+        </section>`;
     }
-    function coding(){
-      window.open("http://masonhorder.github.io/Coding-Log", "_blank");
+
+    function aboutOnly(){
+      view.innerHTML = `
+        <section id="about" class="about">
+          <div>
+            <h2 class="section-title">${data.about.title}</h2>
+            ${data.about.paragraphs.map(p=>`<p>${p}</p>`).join('')}
+            <div class="kvs">${data.about.chips.map(c=>`<span class='chip'>${c}</span>`).join('')}</div>
+          </div>
+          <img src="${data.about.photo}" alt="Mason Horder portrait" />
+        </section>`;
     }
-    function filament(){
-      window.open("http://masonhorder.github.io/Filament-Left", "_blank");
+
+    // --- Router ---
+    function route(){
+      const parts = location.hash.replace('#','').split('/').filter(Boolean);
+      if(parts.length===0) return home();
+      if(parts[0]==='project' && parts[1]) return projectDetail(parts[1]);
+      if(parts[0]==='skills') return skillsOnly();
+      if(parts[0]==='about') return aboutOnly();
+      if(parts[0]==='diaries') return (()=>{ view.innerHTML = '' ; home(); document.getElementById('diaries').scrollIntoView({behavior:'smooth'}); })();
+      home();
     }
-    function pano(){
-      window.open("http://masonhorder.github.io/pano-slicer", "_blank");
-    }
+    window.addEventListener('hashchange', route);
+    route();
   </script>
 </body>
-
 </html>
