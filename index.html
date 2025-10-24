@@ -249,9 +249,9 @@
       diariesIntro: 'My project diaries are a living record of my work — detailed breakdowns of each build, the lessons I’ve learned, the setbacks, and the breakthroughs. I document these to reflect not just the outcomes but the process — the debugging sessions, the CAD redesigns, the code refactors, and the long nights spent testing. Each diary captures a story of iteration and growth.',
       projects: [
         // ↓ You can add / remove projects freely. "slug" forms the diary URL: #/project/your-slug
-        { slug:'smart-ski-goggles', title:'Smart Ski Goggles', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles7.JPG?alt=media&token=30948b76-4a28-49b0-8e24-3627b2c44248', blurb:'Custom AR ski goggles that display real‑time speed, elevation, and map overlays using an ESP32 and Firestore. Designed from scratch and tested at Eldora Mountain.',
+        { slug:'smart-ski-goggles', title:'Smart Ski Goggles', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles11.jpg?alt=media&token=e3793193-362c-4818-b5c6-9b118ce89dd1', blurb:'Custom AR ski goggles that display real‑time speed, elevation, and map overlays using an ESP32 and Firestore.',
           detail: {
-            hero: 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles7.JPG?alt=media&token=30948b76-4a28-49b0-8e24-3627b2c44248',
+            hero: 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles11.jpg?alt=media&token=e3793193-362c-4818-b5c6-9b118ce89dd1',
             overview: [
               'Goal: a lightweight AR HUD for skiers with legible, glanceable data in sun and snow.',
               'I modeled frames in Fusion 360, iterated SLS prints for fit, and explored HUD optics for readability while moving.'
@@ -262,10 +262,10 @@
               { label:'Status', value:'Prototype' }
             ],
             tags: ['AR','Wearable','Fusion 360'],
-            // links: [
-            //   { label:'Repo', href:'#' },
-            //   { label:'Demo', href:'#' }
-            // ],
+            links: [
+              { label:'Investor Pitch', href:'https://docs.google.com/presentation/d/1j0m6vXlXalMglaEkwNZdCoix3QVRxBc13ECd8vs0WX0/edit?slide=id.g3704f61197a_0_5#slide=id.g3704f61197a_0_5' },
+              // { label:'Demo', href:'#' }
+            ],
             diary: [
               { date:'Fusion 360', title:'Model Lenses', notes:'In order to design a frame or create quality HUD graphics I needed to create test pieces which mold to the curveture of the frame', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles1.JPG?alt=media&token=075fa39b-e251-4854-b053-ead66c862339'] },
               { date:'EasyEDA', title:'Create Electronics', notes:'Using EasyEDA I designed a schematic and PCB for running the brains of the ski goggles', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles2.PNG?alt=media&token=7b610bd5-26c9-432c-aa22-550659a3a7c6','https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles3.JPG?alt=media&token=9431d339-b3a2-4f42-bb46-455cd1764fe3'] },
@@ -276,6 +276,67 @@
             
           }
         },
+
+
+
+        { slug:'pano-slicer-app', title:'Pano Slicer App', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano1.png?alt=media&token=9ca84821-b128-4c04-99ca-45d69656a0e1', blurb:'An app designed to split panoramic photos to be posted on instagram. Gathered thousands of downloads.',
+          detail: {
+            hero: 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano1.png?alt=media&token=9ca84821-b128-4c04-99ca-45d69656a0e1',
+            overview: [
+              'Goal: I enjoy photography and taking panoramic photos and I realized there was no app to easily split panoramics up to seamlessely view on an instagram post.',
+              'I designed, published and updated the app to expand features to gain more users.'
+            ],
+            facts: [
+              { label:'Role', value:'Programmer & Designer' },
+              { label:'Stack', value:'Flutter, iOS' },
+              { label:'Status', value:'Inactive Product' }
+            ],
+            tags: ['iOS Application','Flutter','3k+ Downloads'],
+            links: [
+              { label:'Product Site', href:'masonhorder.com/pano-slicer' },
+              // { label:'Demo', href:'#' }
+            ],
+            diary: [
+              { date:'Flutter', title:'Programming', notes:'Programming an application proved to be rather difficult. There are many rules to follow, and small caveats to account for that allow everyone around the world to use the app.', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano1.png?alt=media&token=9ca84821-b128-4c04-99ca-45d69656a0e1', 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano2.png?alt=media&token=6faf9181-9545-4615-908f-2c87a6f74508', 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano3.png?alt=media&token=54ee2812-e4cc-4fa1-9f62-f31f80ca8647', 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano6.png?alt=media&token=99286c29-8668-4c21-9bd8-00783217d844'] },
+              { date:'Marketing', title:'Marketing', notes:'A significant portion of this project was actually the marketing to get this in more peoples hands. I was gifted the oppurtunity to have some free promotion on instagram and learned a lot while running different ad campaigns.', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano4.png?alt=media&token=4635dae1-4c77-46a4-a7fc-222cff86588a', 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano5.png?alt=media&token=7c1499b3-2084-4418-a069-552e702159b1'] },
+              
+            ],
+            
+          }
+        },
+
+
+        // { slug:'sprinkler-system', title:'Sprinkler System', cover:'', blurb: 'The Sprinkler System I designed is a fully working complete irragation control, however never marketed or sold. I designed the hardware for the electronics and the software to run it.',
+        //   detail: {
+        //     hero: '',
+        //     overview: [
+        //       'Goal: My dad was frustrated with his current sprinkler system and wanted a modern update, however I interjected and decided to create a fun project for myself. I wanted to make a system that you could control world wide with smart features to water less for rain.',
+        //       'I created several iterations of prototypes, used the concept for several hackathons'
+        //     ],
+        //     facts: [
+        //       { label:'Role', value:'Programmer & Designer' },
+        //       { label:'Stack', value:'Circuit Design, Flutter, HTML, ESP32' },
+        //       { label:'Status', value:'Active Prototype' }
+        //     ],
+        //     tags: ['Active Prototype','Software Engineering','Electrical Engineering'],
+        //     // links: [
+        //     //   { label:'Repo', href:'#' },
+        //     //   { label:'Demo', href:'#' }
+        //     // ],
+        //     diary: [
+        //       { date:'Concept', title:'Ideating', notes:'', media:[''] },
+        //       { date:'Version 1', title:'Version 1 Electronics', notes:'', media:[''] },
+        //       { date:'Version 1', title:'Version 1 Software', notes:'', media:[''] },
+        //       { date:'Product Protoype 1', title:'Product Protoype 1 Electronics', notes:'', media:[''] },
+        //       { date:'Product Protoype 1', title:'Product Protoype 1 Software', notes:'', media:[''] },
+        //       { date:'End Result', title:'Marketing', notes:'', media:[''] },
+              
+        //     ],
+            
+        //   }
+        // },
+
+
         
       ]
     };
