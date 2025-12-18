@@ -277,7 +277,36 @@
           }
         },
 
+        { slug:'truss-design-project', title:'Truss Design Project', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-final.png?alt=media&token=785fbf45-32fa-4d49-91b8-b1c0f6d4b16d', blurb:'Truss design project for statics final project',
+          detail: {
+            hero: 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-final.png?alt=media&token=785fbf45-32fa-4d49-91b8-b1c0f6d4b16d',
+            overview: [
+              'Goal: Design, Analyze and Construct a scale truss to support 800lbfs',
+              'Take a look at the detailed report linked below for even more detail.'
+            ],
+            facts: [
+              { label:'Role', value:'Engineer' },
+              { label:'Stack', value:'Solidworks, MatLab, Woodworking' },
+              { label:'Status', value: 'Completed' }
+            ],
+            tags: ['Solidworks','MatLab','Woodworking'],
+            links: [
+     
+              { label:'Project Report', href:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-report.pdf?alt=media&token=052726ad-673e-4b11-a2fd-a5b13607f9c6' },
 
+
+            ],
+            diary: [
+              
+            { date:'Analyze', title:'MatLab + Excel', notes:'We used MatLab and excel to analyze the stresses our truss would encounter and to optimize the shape of our truss to be the strongest.', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-excel.png?alt=media&token=6d751089-d447-459c-a199-605bd86042cc','https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-matlab.png?alt=media&token=74e68aa3-6d03-4895-93f3-553140850839'] },
+              { date:'Design', title:'Solidworks', notes:'In Solidworks we created a model of our truss and were able to get the overall dimensions and analyze properties such as weight.', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-cad1.png?alt=media&token=bc1e86d7-5c8c-4bda-832e-a512e427e014', 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-cad2.png?alt=media&token=d0c21cf4-5454-4892-9eeb-800f4aaa45b8'] },
+              { date:'Build', title:'Woodworking', notes:'We then built our truss at our schools machine shop using our drawing we created in solidworks.', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-drawing.png?alt=media&token=1694a143-8a2a-40bf-add6-a7f6588490cc', 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-final.png?alt=media&token=785fbf45-32fa-4d49-91b8-b1c0f6d4b16d'] },
+              { date:'Test', title:'Hydraulic Press', notes:'Finally we tested our project until failure. We failed at around 865lbfs surpassing our poject goal of 800lbfs', media:['https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/truss-failure.png?alt=media&token=e0837995-0d6d-461a-b828-091d1f4d5fc2'] },
+              
+            ],
+            
+          }
+        },
 
         { slug:'pano-slicer-app', title:'Pano Slicer App', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano1.png?alt=media&token=9ca84821-b128-4c04-99ca-45d69656a0e1', blurb:'An app designed to split panoramic photos to be posted on instagram. Gathered thousands of downloads.',
           detail: {
@@ -304,6 +333,8 @@
             
           }
         },
+
+        
 
 
         // { slug:'sprinkler-system', title:'Sprinkler System', cover:'', blurb: 'The Sprinkler System I designed is a fully working complete irragation control, however never marketed or sold. I designed the hardware for the electronics and the software to run it.',
@@ -375,7 +406,7 @@
         </section>
 
         <section id="diaries" class="diaries reveal">
-          <h2 class="section-title">Project Diaries</h2>
+          <h2 class="section-title">Projects</h2>
           <p class="lead" style="max-width: 820px;">${data.diariesIntro}</p>
           <div class="gallery">
             ${data.projects.map(p=>card(p)).join('')}
@@ -434,7 +465,7 @@
 
       view.innerHTML = `
         <section class="reveal">
-          <a href="#/diaries" style="text-decoration:none;color:var(--navy);font-weight:800">← Back to Project Diaries</a>
+          <a href="#/diaries" style="text-decoration:none;color:var(--navy);font-weight:800">← Back to all Projects</a>
           <h1 class="section-title" style="font-size: clamp(2.4rem,5.6vw,3.4rem); margin-top:.6rem">${p.title}</h1>
           <div class="hero"><img src="${hero}" alt="${p.title} hero image" loading="lazy"></div>
           <div class="grid-2">
