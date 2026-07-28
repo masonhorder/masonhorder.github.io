@@ -322,7 +322,7 @@
             ],
             tags: ['iOS Application','Flutter','3k+ Downloads'],
             links: [
-              { label:'Product Site', href:'masonhorder.com/pano-slicer' },
+              { label:'Product Site', href:'/pano-slicer' },
               // { label:'Demo', href:'#' }
             ],
             diary: [
@@ -331,6 +331,29 @@
               
             ],
             
+          }
+        },
+
+        { slug:'ski-lift', title:'Functioning Ski Lift Model', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/pano1.png?alt=media&token=9ca84821-b128-4c04-99ca-45d69656a0e1', blurb:'An app designed to split panoramic photos to be posted on instagram. Gathered thousands of downloads.',
+          detail: {
+            hero: 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/skilift1.jpg?alt=media&token=adc828b6-36d2-4a52-b35a-293f41c2bbf0',
+            overview: [
+              'Goal: I was looking for an exciting project that combined my passion of skiing with engineering and set to create a piece of art. The ski lift is a unique example of creativity with engineering. It made for the ultimate house decor.',
+              'I ideated, prototyped and built the project maximizing aesthetics and functionality for a unique home decor.'
+            ],
+            facts: [
+              { label:'Role', value:'Engineer' },
+              { label:'Stack', value:'Fusion 360, ESP32, Circuit Design' },
+              { label:'Status', value:'Active Art Piece' }
+            ],
+            tags: ['CAD Modeling','Creative Engineering','Long-term Functionality'],
+            // links: [
+            //   { label:'Product Site', href:'/pano-slicer' },
+            //   // { label:'Demo', href:'#' }
+            // ],
+            mode: 2,
+            youtube: 'https://youtu.be/jpVXNZI0SX0',
+            caption: 'The finished ski lift model in action. All parts are 3D printed or standard sourced hardware. The mini skiers were made out of clay and attach via magnets.',
           }
         },
 
@@ -417,6 +440,12 @@
       mountReveals(); // animate sections into view
     }
 
+    // Pulls the video ID out of any standard YouTube URL form (watch, youtu.be, embed, or a bare ID)
+    function youtubeId(url){
+      const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|watch\?v=|shorts\/))([\w-]{11})/);
+      return match ? match[1] : url;
+    }
+
     // Card for gallery grid (big clickable title)
     function card(p){
       return `
@@ -434,6 +463,7 @@
       if(!p){ location.hash = '#/'; return; }
       // Use detail object if provided; fall back to generic fields
       const d = p.detail || {};
+      const mode = d.mode || 1;
       const hero = d.hero || p.cover;
       const overview = Array.isArray(d.overview) ? d.overview : [p.blurb];
       const facts = Array.isArray(d.facts) ? d.facts : [
@@ -450,13 +480,35 @@
       const factsList = facts.map(f=>`<li><strong>${f.label}:</strong> ${f.value}</li>`).join('');
       const tagChips = tags.map(t=>`<span class="tag">${t}</span>`).join('');
       const linkBtns = links.map(a=>`<a href="${a.href}" target="_blank" rel="noopener">${a.label} ↗</a>`).join('');
-      const diaryItems = diary.map(item=>`
+      const diaryItems = diary.map(item=>{
+        // mode 2: a single video or image with a caption underneath, instead of the media[] gallery
+        let mediaBlock = '';
+        if(item.mode === 2 && item.video){
+          mediaBlock = `<div class="gallery-mini"><video class="thumb" src="${item.video}" controls playsinline></video></div>${item.caption ? `<p class="muted" style="margin-top:.4rem">${item.caption}</p>` : ''}`;
+        } else if(item.mode === 2 && item.image){
+          mediaBlock = `<div class="gallery-mini"><img class="thumb" src="${item.image}" alt="${p.title} ${item.title}"></div>${item.caption ? `<p class="muted" style="margin-top:.4rem">${item.caption}</p>` : ''}`;
+        } else if(item.media && item.media.length){
+          mediaBlock = `<div class="gallery-mini">${item.media.map(m=>`<img class='thumb' src='${m}' alt='${p.title} ${item.title}'>`).join('')}</div>`;
+        }
+        return `
         <div class="t-item">
           <p class="t-title">${item.title} <span class="t-date">— ${item.date}</span></p>
           <p class="muted">${item.notes}</p>
-          ${item.media && item.media.length ? `<div class="gallery-mini">${item.media.map(m=>`<img class='thumb' src='${m}' alt='${p.title} ${item.title}'>`).join('')}</div>` : ''}
+          ${mediaBlock}
         </div>
-      `).join('');
+      `;
+      }).join('');
+
+      // mode 2: one large photo or video with a caption instead of the Build Diary timeline
+      let featureBlock = '';
+      if(mode === 2 && d.youtube){
+        const ytId = youtubeId(d.youtube);
+        featureBlock = `<div class="hero"><div style="position:relative;padding-top:56.25%"><iframe src="https://www.youtube.com/embed/${ytId}" title="${p.title}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>${d.caption ? `<p class="muted" style="margin-top:.6rem">${d.caption}</p>` : ''}`;
+      } else if(mode === 2 && d.video){
+        featureBlock = `<div class="hero"><video src="${d.video}" controls playsinline style="width:100%;display:block"></video></div>${d.caption ? `<p class="muted" style="margin-top:.6rem">${d.caption}</p>` : ''}`;
+      } else if(mode === 2 && d.image){
+        featureBlock = `<div class="hero"><img src="${d.image}" alt="${p.title}" style="width:100%;display:block"></div>${d.caption ? `<p class="muted" style="margin-top:.6rem">${d.caption}</p>` : ''}`;
+      }
 
       const galleryGrid = (gallery.length ? gallery : [
         {src:`https://picsum.photos/seed/${slug}1/1200/800`, cap:'Detail 1'},
@@ -482,13 +534,13 @@
           </div>
         <div style="margin-top:1.2rem">
             <div class="panel reveal">
-                <h3>Build Diary</h3>
-                ${diary.length ? `<div class="timeline">${diaryItems}</div>` : `<pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements\nDay 2 — CAD and prints\nDay 3 — Electronics bring‑up\n...</pre>`}
+                ${mode === 2 ? featureBlock : `<h3>Build Diary</h3>${diary.length ? `<div class="timeline">${diaryItems}</div>` : `<pre style="white-space:pre-wrap;background:#f8fafc;border:1px solid var(--border);padding:1rem;border-radius:10px">Day 1 — Sketches & requirements\nDay 2 — CAD and prints\nDay 3 — Electronics bring‑up\n...</pre>`}`}
             </div>
         </div> 
         </section>`;
 
       mountReveals();
+      window.scrollTo(0, 0);
     }
 
     function skillsOnly(){
@@ -517,16 +569,29 @@
     // =====================================
     // ROUTER — simple hash router for pages
     // =====================================
+    let savedScrollY = null; // scroll position of the gallery page, captured right before opening a project
     function route(){
       const parts = location.hash.replace('#','').split('/').filter(Boolean);
       if(parts.length===0) return home();
       if(parts[0]==='project' && parts[1]) return projectDetail(parts[1]);
       if(parts[0]==='skills') return skillsOnly();
       if(parts[0]==='about') return aboutOnly();
-      if(parts[0]==='diaries') return (()=>{ view.innerHTML = '' ; home(); document.getElementById('diaries').scrollIntoView({behavior:'smooth'}); })();
+      if(parts[0]==='diaries') return (()=>{
+        view.innerHTML = '';
+        home();
+        if(savedScrollY !== null){
+          window.scrollTo(0, savedScrollY);
+          savedScrollY = null;
+        } else {
+          document.getElementById('diaries').scrollIntoView({behavior:'smooth'});
+        }
+      })();
       home();
     }
-    window.addEventListener('hashchange', route);
+    window.addEventListener('hashchange', ()=>{
+      if(location.hash.startsWith('#/project/')) savedScrollY = window.scrollY;
+      route();
+    });
 
     // =====================================
     // SCROLL-REVEAL — subtle entrance anims
