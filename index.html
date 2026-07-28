@@ -87,13 +87,20 @@
     .about img { border-radius: var(--radius); width: 100%; object-fit: cover; box-shadow: var(--shadow); border:1px solid var(--border); }
     .kvs { display:flex; gap:.6rem; flex-wrap:wrap; margin-top: .6rem; }
     .chip { border:1px solid var(--border); padding:.4rem .8rem; border-radius:999px; font-size:.95rem; background:#fff }
+    .about-info { display:flex; flex-direction:column; gap: .9rem; margin-top: 1.1rem; }
+    .info-row { display:flex; align-items:center; gap: .9rem; }
+    .info-icon { flex:none; width:46px; height:46px; display:grid; place-items:center; border-radius:14px; background: var(--accent); border:1px solid var(--border); color: var(--navy); }
+    .info-icon svg { width:24px; height:24px; }
+    .info-text { font-weight:700; font-size:1.02rem; }
 
     /* ======
        SKILLS
        ====== */
     .skills { background: var(--accent); border-radius: var(--radius); padding: 2.2rem; margin-top: 3.2rem; border:1px solid var(--border); }
-    .skills ul { columns: 2; column-gap: 2rem; padding-left: 1rem; }
-    .skills li { margin: 0 0 .65rem; }
+    .skills-list { margin-top: 1.2rem; border-top: 1px solid var(--border); }
+    .skill-row { display:grid; grid-template-columns: 190px 1fr; gap: .5rem 1.2rem; padding: .8rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .skill-row .skill-cat { font-weight: 800; font-size: .98rem; }
+    .skill-row .skill-items { color: var(--muted); }
 
     /* =====================
        PROJECT DIARIES GRID
@@ -112,9 +119,21 @@
     /* ================
        DIARY DETAIL UI
        ================ */
-    .hero { border-radius: var(--radius); overflow:hidden; border:1px solid var(--border); margin: 1.2rem 0; box-shadow: var(--shadow); }
-    .hero img { width:100%; height: 440px; object-fit:cover; display:block; }
-    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .hero { position:relative; border-radius: var(--radius); overflow:hidden; border:1px solid var(--border); margin: 1.2rem 0; box-shadow: var(--shadow); }
+    .see-more-btn {
+      position:fixed; left:50%; bottom:24px; transform:translateX(-50%); z-index:60;
+      display:flex; align-items:center; gap:.45rem;
+      background: linear-gradient(180deg, var(--navy), var(--navy-dark)); backdrop-filter: blur(4px);
+      border:1px solid var(--navy-dark); border-radius:999px; padding:.6rem 1.15rem;
+      font-size:.95rem; font-weight:800; color:#fff; letter-spacing:.2px;
+      box-shadow: var(--shadow); cursor:pointer;
+      opacity:1; transition: opacity .25s ease, transform .25s ease;
+    }
+    .see-more-btn:hover { transform: translateX(-50%) translateY(-2px); }
+    .see-more-btn.hidden { opacity:0; transform:translateX(-50%) translateY(10px); pointer-events:none; }
+    .see-more-btn svg { width:16px; height:16px; }
+    .hero img { width:100%; height: 528px; object-fit:cover; display:block; }
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; scroll-margin-top: 90px; }
     .panel { background:#fff; border:1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
 
     /* Fun, easy-to-edit diary styling */
@@ -166,7 +185,7 @@
     @media (max-width: 900px){
       .about{ grid-template-columns:1fr; }
       .grid-2{ grid-template-columns:1fr; }
-      .hero img{ height:260px; }
+      .hero img{ height:312px; }
       #menuBtn{ display:block; }
       .nav{ gap:.5rem; }
       .nav.open nav.primary{ display:block; }
@@ -186,8 +205,8 @@
 
     @media (max-width: 520px){
       .about{ gap: 1.2rem; }
-      .skills ul{ columns: 1; }
-      .hero img{ height: clamp(200px, 55vw, 320px); }
+      .skill-row{ grid-template-columns: 1fr; }
+      .hero img{ height: clamp(240px, 66vw, 384px); }
       .section-title{ letter-spacing: .1px; }
       .chip{ font-size: .9rem; }
     }
@@ -209,9 +228,6 @@
       </a>
       <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" style="display:none;border:1px solid var(--border);background:#fff;border-radius:999px;padding:.5rem .7rem;font-weight:800">≡</button>
       <nav class="primary" id="primaryNav">
-        <a class="pill-link" href="#/about">About</a>
-        <a class="pill-link" href="#/skills">Skills</a>
-        <a class="pill-link" href="#/diaries">Project Diaries</a>
         <a href="https://www.linkedin.com/in/mason-horder-962359177/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:masonhorder@gmail.com">Email</a>
       </nav>
@@ -232,21 +248,24 @@
       about: {
         title: 'About Me',
         paragraphs: [
-          "Hi, I’m Mason Horder — an engineering student at CU Boulder with a passion for creating meaningful, tangible things. I bridge the worlds of mechanical design, embedded systems, and user‑focused app development to build tools that make life easier and more fun.",
-          "I love working across the entire lifecycle: from concept sketches and CAD modeling to circuit design, coding, and field testing. My work ranges from AR ski goggles that project live metrics, to smart home devices, and mobile tools with thousands of downloads.",
-          "What drives me most is combining creativity with technical precision — the idea that elegant design and solid engineering can coexist beautifully."
+          "I'm Mason Horder, an engineering student at CU Boulder who likes seeing a project through from a rough sketch to something that actually works in someone's hands.",
+          "That's taken me across mechanical design, embedded electronics, and app development — building AR ski goggles that display live speed and elevation, smart home devices, and a mobile app that's reached thousands of users.",
+          "My goal is simple: spend a career engineering things that are genuinely useful — solving real problems for real people, one project at a time."
         ],
-        chips: ['Mechanical Engineering @ CU Boulder','Flutter · Python · C++','Fusion 360 · SolidWorks · EasyEDA'],
+        info: [
+          { icon:'school', text:'Mechanical Engineering @ CU Boulder' },
+          { icon:'work', text:'Cleaning Lab Technician & Assistant Mechanical Assembler @ LASP' }
+        ],
         photo: 'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/mason.jpg?alt=media&token=2aefd127-48af-4138-8dec-75cfc434c0c3' // ← replace with your headshot URL
       },
       skills: [
-        '<strong>Mechanical Design:</strong> Fusion 360, SolidWorks, 3D printing, CNC, rapid prototyping',
-        '<strong>Embedded Systems:</strong> ESP32, Raspberry Pi, EasyEDA, PCB design, sensors & actuators',
-        '<strong>Software:</strong> Flutter, Python, C++, Firebase, background services, data visualization',
-        '<strong>UI/UX:</strong> Wireframing, user testing, responsive design principles',
-        '<strong>Collaboration:</strong> Version control, documentation, iterative prototyping'
+        { category: 'Mechanical Design', items: ['Fusion 360', 'SolidWorks', '3D Printing', 'CNC', 'Rapid Prototyping'] },
+        { category: 'Embedded Systems', items: ['ESP32', 'Raspberry Pi', 'EasyEDA', 'PCB Design', 'Sensors & Actuators'] },
+        { category: 'Software', items: ['Flutter', 'Python', 'C++', 'Firebase', 'Data Visualization'] },
+        { category: 'UI/UX', items: ['Wireframing', 'User Testing', 'Responsive Design'] },
+        { category: 'Collaboration', items: ['Version Control', 'Documentation', 'Iterative Prototyping'] }
       ],
-      diariesIntro: 'My project diaries are a living record of my work — detailed breakdowns of each build, the lessons I’ve learned, the setbacks, and the breakthroughs. I document these to reflect not just the outcomes but the process — the debugging sessions, the CAD redesigns, the code refactors, and the long nights spent testing. Each diary captures a story of iteration and growth.',
+      diariesIntro: 'Each project diary documents how a build actually came together: the design decisions, the setbacks, what I learned along the way, and the results.',
       projects: [
         // ↓ You can add / remove projects freely. "slug" forms the diary URL: #/project/your-slug
         { slug:'smart-ski-goggles', title:'Smart Ski Goggles', cover:'https://firebasestorage.googleapis.com/v0/b/masonhorder-cf21c.firebasestorage.app/o/ski_goggles11.jpg?alt=media&token=e3793193-362c-4818-b5c6-9b118ce89dd1', blurb:'Custom AR ski goggles that display real‑time speed, elevation, and map overlays using an ESP32 and Firestore.',
@@ -452,15 +471,20 @@
           <div>
             <h2 class="section-title">${data.about.title}</h2>
             ${data.about.paragraphs.map(p=>`<p>${p}</p>`).join('')}
-            <div class="kvs">${data.about.chips.map(c=>`<span class='chip'>${c}</span>`).join('')}</div>
+            ${aboutInfo()}
           </div>
           <img src="${data.about.photo}" alt="Mason Horder portrait" />
         </section>
 
         <section id="skills" class="skills reveal">
           <h2 class="section-title">Skills & Tools</h2>
-          <ul>${data.skills.map(s=>`<li>${s}</li>`).join('')}</ul>
-          <p>Each skill supports my broader goal — building connected devices that merge physical precision with intuitive digital feedback.</p>
+          <div class="skills-list">
+            ${data.skills.map(s=>`
+              <div class="skill-row">
+                <span class="skill-cat">${s.category}</span>
+                <span class="skill-items">${s.items.join(' · ')}</span>
+              </div>`).join('')}
+          </div>
         </section>
 
         <section id="diaries" class="diaries reveal">
@@ -469,10 +493,22 @@
           <div class="gallery">
             ${data.projects.map(p=>card(p)).join('')}
           </div>
-          <p style="margin-top:1.2rem">Each diary includes in‑depth sections on ideation, design decisions, testing phases, and reflections — complete with photos, logs, and results. <strong>It’s more than a showcase; it’s a record of my engineering journey.</strong></p>
         </section>`;
 
       mountReveals(); // animate sections into view
+    }
+
+    // Simple inline icon set for the About info rows
+    const ICONS = {
+      school: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>',
+      work: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>'
+    };
+    function aboutInfo(){
+      return `<div class="about-info">${data.about.info.map(i=>`
+        <div class="info-row">
+          <span class="info-icon">${ICONS[i.icon] || ''}</span>
+          <span class="info-text">${i.text}</span>
+        </div>`).join('')}</div>`;
     }
 
     // Pulls the video ID out of any standard YouTube URL form (watch, youtu.be, embed, or a bare ID)
@@ -563,8 +599,11 @@
         <section class="reveal">
           <a href="#/diaries" style="text-decoration:none;color:var(--navy);font-weight:800">← Back to all Projects</a>
           <h1 class="section-title" style="font-size: clamp(2.4rem,5.6vw,3.4rem); margin-top:.6rem">${p.title}</h1>
-          <div class="hero"><img src="${hero}" alt="${p.title} hero image" loading="lazy"></div>
-          <div class="grid-2">
+          <div class="hero">
+            <img src="${hero}" alt="${p.title} hero image" loading="lazy">
+            <button class="see-more-btn" onclick="document.getElementById('projectContent').scrollIntoView({behavior:'smooth'})">See more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          </div>
+          <div class="grid-2" id="projectContent">
             <div class="panel reveal">
               <h3>Overview</h3>
               ${overview.map(par=>`<p>${par}</p>`).join('')}
@@ -585,14 +624,25 @@
 
       mountReveals();
       window.scrollTo(0, 0);
+
+      const seeMoreBtn = document.querySelector('.see-more-btn');
+      if(seeMoreBtn){
+        seeMoreScrollHandler = () => seeMoreBtn.classList.toggle('hidden', window.scrollY > 40);
+        window.addEventListener('scroll', seeMoreScrollHandler, { passive:true });
+      }
     }
 
     function skillsOnly(){
       view.innerHTML = `
         <section id="skills" class="skills reveal">
           <h2 class="section-title">Skills & Tools</h2>
-          <ul>${data.skills.map(s=>`<li>${s}</li>`).join('')}</ul>
-          <p>Each skill supports my broader goal — building connected devices that merge physical precision with intuitive digital feedback.</p>
+          <div class="skills-list">
+            ${data.skills.map(s=>`
+              <div class="skill-row">
+                <span class="skill-cat">${s.category}</span>
+                <span class="skill-items">${s.items.join(' · ')}</span>
+              </div>`).join('')}
+          </div>
         </section>`;
       mountReveals();
     }
@@ -603,7 +653,7 @@
           <div>
             <h2 class="section-title">${data.about.title}</h2>
             ${data.about.paragraphs.map(p=>`<p>${p}</p>`).join('')}
-            <div class="kvs">${data.about.chips.map(c=>`<span class='chip'>${c}</span>`).join('')}</div>
+            ${aboutInfo()}
           </div>
           <img src="${data.about.photo}" alt="Mason Horder portrait" />
         </section>`;
@@ -614,7 +664,9 @@
     // ROUTER — simple hash router for pages
     // =====================================
     let savedScrollY = null; // scroll position of the gallery page, captured right before opening a project
+    let seeMoreScrollHandler = null; // hides the floating "See more" button once the page has been scrolled
     function route(){
+      if(seeMoreScrollHandler){ window.removeEventListener('scroll', seeMoreScrollHandler); seeMoreScrollHandler = null; }
       const parts = location.hash.replace('#','').split('/').filter(Boolean);
       if(parts.length===0) return home();
       if(parts[0]==='project' && parts[1]) return projectDetail(parts[1]);
